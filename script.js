@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 const fs = require("fs");
 
 const msg = fs.readFileSync(process.argv[2]).toString();
