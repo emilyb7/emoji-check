@@ -1,6 +1,6 @@
 ## What's this for?
 
-`emoji-commit-message-validator` helps enforce some basic commit-message hygiene across a codebase by prompting developers to start their commit messages with an emoji.
+This package helps enforce some basic commit-message hygiene across a codebase by prompting developers to start their commit messages with an emoji.
 
 
 
@@ -29,6 +29,7 @@ Or with yarn:
 
 ```sh
 yarn add emoji-commit-message-validator -D
+```
 
 
 🔧 Configure husky
@@ -40,7 +41,7 @@ You can add the following to your package.json
 {
   "husky": {
     "hooks": {
-      "commit-message": "emoji-check $HUSKY_GIT_PARAMS"
+      "commit-msg": "emoji-check $HUSKY_GIT_PARAMS"
     }
   }
 }
