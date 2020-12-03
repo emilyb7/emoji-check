@@ -21,17 +21,6 @@ yarn add husky -D
 🐶 You'll also need to install Husky to run commit message hooks:
 
 
-```sh
-npm install husky --save --dev
-```
-
-Or with yarn:
-
-```sh
-yarn add emoji-commit-message-validator -D
-```
-
-
 🔧 Configure husky
 
 You can add the following to your package.json
@@ -52,7 +41,7 @@ Or create a `.huskyrc` file with the following content
 ```rc
 {
   "hooks": {
-    "commit-msg": "node script.js $HUSKY_GIT_PARAMS"
+    "commit-msg": "emoji-check $HUSKY_GIT_PARAMS"
   }
 }
 ```
