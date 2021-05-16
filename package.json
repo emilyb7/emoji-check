@@ -8,7 +8,8 @@
     "husky": ">1.x"
   },
   "bin": {
-    "emoji-check": "script.js"
+    "emoji-check": "script.js",
+    "emoji-check-interactive": "script.js"
   },
   "repository": {
     "type": "git",
