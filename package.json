@@ -9,13 +9,18 @@
   },
   "bin": {
     "emoji-check": "script.js",
-    "emoji-check-interactive": "script.js"
+    "emoji-check-interactive": "script.js",
+    "emoji-check-install": "install.js"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/emilyb7/emoji-check"
   },
-  "dependencies": {
-    "husky": "6.0.0"
+  "devDependencies": {
+    "husky": "^6.0.0"
+  },
+  "scripts": {
+    "prepare": "husky install",
+    "emoji-check-interactive": "node script.js"
   }
 }

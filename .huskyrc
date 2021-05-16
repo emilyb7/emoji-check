@@ -1,5 +1,0 @@
-{
-  "hooks": {
-    "commit-msg": "node script.js $HUSKY_GIT_PARAMS"
-  }
-}
