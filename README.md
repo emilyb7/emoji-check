@@ -1,6 +1,8 @@
+Based on gitmoji!!
+
 ## What's this for?
 
-This package helps enforce some basic commit-message hygiene across a codebase by prompting developers to start their commit messages with an emoji.
+This package helps enforce some commit-message hygiene by prompting developers to start their commit messages with an emoji.
 
 Prerequisites:
 

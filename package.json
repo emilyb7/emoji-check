@@ -21,6 +21,9 @@
   },
   "scripts": {
     "prepare": "husky install",
-    "emoji-check-interactive": "node script.js"
+    "emoji-check-interactive": "node interactive.js"
+  },
+  "dependencies": {
+    "inquirer": "^8.0.0"
   }
 }
