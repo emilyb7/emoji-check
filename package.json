@@ -9,7 +9,7 @@
   },
   "bin": {
     "emoji-check": "script.js",
-    "emoji-check-interactive": "script.js",
+    "emoji-check-interactive": "interactive.js",
     "emoji-check-install": "install.js"
   },
   "repository": {
