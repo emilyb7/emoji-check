@@ -1,4 +1,4 @@
-Based on gitmoji!!
+Based on [gitmoji](https://gitmoji.dev/)!!
 
 ## What's this for?
 
