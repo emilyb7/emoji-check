@@ -1,4 +1,5 @@
 const chalk = require("chalk");
+const path = require("path");
 const { readFile } = require("fs/promises");
 
 const msg = require("fs")
@@ -11,11 +12,19 @@ const startsWithEmoji = message => {
   return emojiRegex.test(message);
 };
 
-const extractEmojiFromString = val => val.match(emojiRegex)[0];
+const getGitmojiChoices = () =>
+  readFile(path.join(__dirname, "./gitmojis.json"))
+    .then(gitmojiFileData => gitmojiFileData.toString("utf-8"))
+    .then(json => {
+      return JSON.parse(json).gitmojis;
+    })
+    .then(gitmojis =>
+      gitmojis.map(
+        gitmojiItem => `${gitmojiItem.emoji} -- ${gitmojiItem.description}`
+      )
+    );
 
-const gitmojis = require("./gitmojis.json").gitmojis.map(
-  gitmoji => `${gitmoji.emoji} -- ${gitmoji.description}`
-);
+const extractEmojiFromString = val => val.match(emojiRegex)[0];
 
 const handleFail = () => {
   console.log(
@@ -35,8 +44,8 @@ const run = async () => {
 
     process.on("SIGINT", handleFail);
 
-    process.on("exit", code => {
-      if (code === 1) handleFail();
+    process.on("exit", () => {
+      handleFail();
     });
 
     console.log(chalk.blue("😎 The best commit messages start with an emoji"));
@@ -54,7 +63,7 @@ const run = async () => {
           name: "emoji",
           pageSize: 20,
           message: "Choose a relevant emoji",
-          choices: gitmojis,
+          choices: getGitmojiChoices,
           filter: extractEmojiFromString,
           when: function(answers) {
             return answers.wouldLikeHelp === true;
@@ -70,6 +79,7 @@ const run = async () => {
 
     if (chosenEmoji) {
       require("fs").writeFileSync(process.argv[2], `${chosenEmoji} ${msg}`);
+      process.removeAllListeners("exit");
       process.exit(0);
     }
   } catch (err) {
